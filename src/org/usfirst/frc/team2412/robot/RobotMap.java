@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -23,4 +25,16 @@ public class RobotMap {
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
+	
+	public static int rollerID = 4;
+	public static WPI_TalonSRX roller = new WPI_TalonSRX(rollerID);
+	public static int[] drivebaseIDs = new int[] {
+			0,1,2,3
+	};
+	public static WPI_TalonSRX drivebaseTalons[] = new WPI_TalonSRX[] {
+			new WPI_TalonSRX(drivebaseIDs[0]),
+			new WPI_TalonSRX(drivebaseIDs[1]),
+			new WPI_TalonSRX(drivebaseIDs[2]),
+			new WPI_TalonSRX(drivebaseIDs[3])
+	};
 }
