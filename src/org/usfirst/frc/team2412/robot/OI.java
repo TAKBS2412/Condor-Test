@@ -7,7 +7,16 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.IntakeDownCommand;
+import org.usfirst.frc.team2412.robot.commands.IntakeInCommand;
+import org.usfirst.frc.team2412.robot.commands.IntakeOutCommand;
+import org.usfirst.frc.team2412.robot.commands.IntakeUpCommand;
+import org.usfirst.frc.team2412.robot.commands.LaunchHighCommand;
+import org.usfirst.frc.team2412.robot.commands.LaunchLowCommand;
+
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -44,4 +53,24 @@ public class OI {
 	
 	public Joystick stick = new Joystick(0);
 	public Joystick codriver = new Joystick(1);
+	
+	public Button buttonIn = new JoystickButton(codriver, 1);
+	public Button buttonOut = new JoystickButton(codriver, 2);
+	
+	public Button buttonUp = new JoystickButton(codriver, 3);
+	public Button buttonDown = new JoystickButton(codriver, 4);
+	
+	public Button buttonLaunchHigh = new JoystickButton(codriver, 5);
+	public Button buttonLaunchLow = new JoystickButton(codriver, 6);
+	
+	public OI() {
+		buttonIn.whileHeld(new IntakeInCommand());
+		buttonOut.whileHeld(new IntakeOutCommand());
+		
+		buttonUp.whenPressed(new IntakeUpCommand());
+		buttonDown.whenPressed(new IntakeDownCommand());
+		
+		buttonLaunchHigh.whenPressed(new LaunchHighCommand());
+		buttonLaunchLow.whenPressed(new LaunchLowCommand());
+	}
 }
