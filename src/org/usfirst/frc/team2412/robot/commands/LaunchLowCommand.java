@@ -14,4 +14,8 @@ public class LaunchLowCommand extends CommandBase {
 	protected boolean isFinished() {
 		return true;
 	}
+
+	public void end() {
+		catapult.retractLow();
+	}
 }
