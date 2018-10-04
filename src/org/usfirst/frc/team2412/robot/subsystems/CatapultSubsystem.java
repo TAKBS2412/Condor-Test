@@ -14,4 +14,12 @@ public class CatapultSubsystem extends Subsystem {
 	public void launchLow() {
 	
 	}
+	
+	public void retractHigh() {
+		
+	}
+	
+	public void retractLow() {
+		
+	}
 }
